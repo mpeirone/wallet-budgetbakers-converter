@@ -16,7 +16,7 @@ async function analyze(e) {
   for (i = 2; i <= sheetLenght; i++) {
     var transactionDate = new Date(input.Sheets[sheet]["A" + i].v)
     output.push(GenerateRow(
-      transactionDate.toLocaleDateString() + " " + transactionDate.toLocaleTimeString(),
+      transactionDate.toLocaleDateString('it-IT') + " " + transactionDate.toLocaleTimeString('it-IT'),
       input.Sheets[sheet]["B" + i].v,
       input.Sheets[sheet]["C" + i].v,
       input.Sheets[sheet]["D" + i].v))
