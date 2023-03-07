@@ -13,9 +13,11 @@ async function analyze(e) {
   var sheet = input.SheetNames[0];
   output.push(GenerateRow("Date", "Description", "Expense", "Entrance"))
   var sheetLenght = input.Sheets[sheet]["!ref"].split(":")[1].substring(1);
+  var fromDate = document.getElementById("inputFromDate").value?new Date(document.getElementById("inputFromDate").value):undefined
   for (i = 2; i <= sheetLenght; i++) {
     var transactionDate = new Date(input.Sheets[sheet]["E" + i].v)
 	var amount = parseInt(input.Sheets[sheet]["F" + i].v)
+	if(!fromDate||fromDate<=transactionDate)
     output.push(GenerateRow(
       transactionDate.toLocaleDateString('it-IT') + " " + transactionDate.toLocaleTimeString('it-IT'),
       input.Sheets[sheet]["B" + i].v,
