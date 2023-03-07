@@ -6,6 +6,6 @@ This web page allows you to convert XLS file exported from binance card making i
 |--|--|--|--|
 
 **Try it out:**
-https://mpeirone.github.io/wallet-budgetbakers-converter/satispay
+https://mpeirone.github.io/wallet-budgetbakers-converter/binance/
 
-https://mpeirone.github.io/wallet-budgetbakers-converter/binance
+https://mpeirone.github.io/wallet-budgetbakers-converter/satispay/
