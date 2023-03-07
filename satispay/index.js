@@ -16,7 +16,7 @@ async function analyze(e) {
   var fromDate = document.getElementById("inputFromDate").value?new Date(document.getElementById("inputFromDate").value):undefined
   for (i = 2; i <= sheetLenght; i++) {
     var transactionDate = new Date(input.Sheets[sheet]["E" + i].v)
-	var amount = parseInt(input.Sheets[sheet]["F" + i].v)
+	var amount = parseFloat(input.Sheets[sheet]["F" + i].v)
 	if(!fromDate||fromDate<=transactionDate)
     output.push(GenerateRow(
       transactionDate.toLocaleDateString('it-IT') + " " + transactionDate.toLocaleTimeString('it-IT'),
