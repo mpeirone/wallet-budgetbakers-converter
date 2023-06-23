@@ -1,14 +1,18 @@
 <script src="index.js"></script>
 <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.18.12/package/dist/xlsx.full.min.js"></script>
+<script type = "text/JavaScript" src = "https://momentjs.com/downloads/moment-with-locales.min.js"></script>
 
 
 
 
-<body onload="onLoad()">
+<body>
     <label for="inputFile">Importa il file xlsx esportato da satispay: </label>
     <input type="file" id="inputFile" name="inputFile">
+</br>
 	<label for="inputFromDate">Dal giorno</label>
 	<input type="date" id="inputFromDate" name="inputFromDate">
+</br>
+<button onclick="analyze()">Converti</button>
 </body>
 
 

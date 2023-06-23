@@ -1,21 +1,18 @@
 // XLSX is a global from the standalone script
-function onLoad() {
-  const input = document.getElementById('inputFile');
-  input.addEventListener("change", analyze, false);
-}
 
 async function analyze(e) {
   var output = [];
 
-  const file = e.target.files[0];
+  const file = document.getElementById("inputFile").files[0];
   const data = await file.arrayBuffer();
   const input = XLSX.read(data);
   var sheet = input.SheetNames[0];
   output.push(GenerateRow("Date", "Description", "Expense", "Entrance"))
   var sheetLenght = input.Sheets[sheet]["!ref"].split(":")[1].substring(1);
   var fromDate = document.getElementById("inputFromDate").value?new Date(document.getElementById("inputFromDate").value):undefined
+  if(fromDate){fromDate.setHours(0,0,0,0);}
   for (i = 2; i <= sheetLenght; i++) {
-    var transactionDate = new Date(input.Sheets[sheet]["E" + i].v)
+    var transactionDate = moment(input.Sheets[sheet]["E" + i].v, "DD MMMM YYYY, hh:mm:ss", "it").toDate();
 	var amount = parseFloat(input.Sheets[sheet]["F" + i].v)
 	if(!fromDate||fromDate<=transactionDate)
     output.push(GenerateRow(
